@@ -18,4 +18,4 @@ class Solution(object):
 
 # My approach to this problem:
 
-    # I initially wanted to create a temp array where I stored the first value of >nums< to the first index (index       0). Then I wanted to iterate through the entirity of >nums< starting from 1 to the len of nums. But it             then I realized that this current solution was simpiler because I could do everything in the for loop rather       than hard assigning a value
+    # I initially wanted to create a temp array where I stored the first value of >nums< to the first index (index 0). Then I wanted to iterate through the entirity of >nums< starting from 1 to the len of nums. But it             then I realized that this current solution was simpiler because I could do everything in the for loop rather       than hard assigning a value
