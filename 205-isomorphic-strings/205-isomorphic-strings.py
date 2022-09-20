@@ -5,23 +5,36 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        mapping_s_t = {}
-        mapping_t_s = {}
+        if (len(s) != len(t)): #Check to see if the two lengths are the same. If not then cant be Isomorphic by definition
+            return False
         
-        for c1, c2 in zip(s, t):
+        hashtable = {} # Creating an empty dictionary 
+
+        for i in range(len(s)):
+    
+            if(s[i] not in hashtable.keys()):
             
-            # Case 1: No mapping exists in either of the dictionaries
-            if (c1 not in mapping_s_t) and (c2 not in mapping_t_s):
-                mapping_s_t[c1] = c2
-                mapping_t_s[c2] = c1
-            
-            # Case 2: Ether mapping doesn't exist in one of the dictionaries or Mapping exists and
-            # it doesn't match in either of the dictionaries or both            
-            elif mapping_s_t.get(c1) != c2 or mapping_t_s.get(c2) != c1:
-                return False
+                if (t[i] in hashtable.values()):
+                    keys = [k for k, v in hashtable.items() if v == t[i]]
+                    if(keys != t[i]):
+                        return False
+                    
+                hashtable[s[i]] = t[i]
+            else:
+                
+                keyvalue = hashtable[s[i]]
+                if (keyvalue != t[i]):
+                    return False
+                    
+            print(hashtable)
             
         return True
 
+
+
+
+
+
+# Here I learned about key value pairs that can be used to match up values at certain indexes of two different variables.For Future Refrences: https://www.pythontutorial.net/python-basics/python-dictionary/ 
         
-# The first thing I popped into my mind is if the length of two strings are not the same then they wont be isomorphic, due to the definition of isomorphic strings. Next was to iterate through each letter of both words. Here is where I learned that I could count the number of times each letter has been used within the word
-        
+        # Here I learned about key value pairs that can be used to match up values at certain indexes of two different variables.For Future Refrences: https://www.pythontutorial.net/python-basics/python-dictionary/ 
